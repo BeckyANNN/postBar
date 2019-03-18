@@ -1,0 +1,212 @@
+.wrap1{
+    background-color: #dceffe;
+    .head{
+        width: 982px;
+        margin: 0 auto;
+        .banner{
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        .theme{
+            height: 90px;
+            border-top: 1px solid #E9EBF0;
+            background-color: #F2F4F7;
+            background-image: -webkit-linear-gradient(top,#f5f7fa,#f2f4f7);
+            .card-right{
+                float: right;
+                margin: 15px 20px 0 0;
+                width: 181px;
+                height: 50px;
+                position: relative;
+                background: url(../../assets/images/sign.png) no-repeat left center;
+                a{
+                    height: 50px;
+                    display: block;
+                    outline: 0;
+                    position: relative;
+                    .sign_today_date{
+                        position: absolute;
+                        right: 0;
+                        top: 4px;
+                        font-size: 12px;
+                        color: #737373;
+                        line-height: 22px;
+                        width: 75px;
+                    }
+                    .sign_month_lack_days{
+                        position: absolute;
+                        right: 0;
+                        top: 24px;
+                        font-size: 12px;
+                        color: #737373;
+                        line-height: 22px;
+                        width: 75px;
+                        span{
+                            color: red
+                        }
+                    }
+                }
+            }
+            .card-left{
+                height: 74px;
+                line-height: normal;
+                position: relative;
+                padding: 15px 0 0 200px;
+                font-family: STHeiti,"Microsoft Yahei",Arial,SimSun;
+                float: left;
+                .card-head{
+                    width: 150px;
+                    height: 150px;
+                    padding: 4px;
+                    overflow: hidden;
+                    background: #FFF;
+                    z-index: 9;
+                    border: solid 1px rgba(0,0,0,.1);
+                    position: absolute;
+                    left: 0;
+                    top: auto;
+                    bottom: -5px;
+                    border-color: #DADCDF;
+                    margin: 20px;
+                }
+                .card-title{
+                    height: 40px;
+                    position: relative;
+                    line-height: 55px;
+                    .card_title_fname{
+                        text-decoration: none;
+                        color: #333;
+                        margin-right: 0;
+                        margin-top: 3px;
+                        font-size: 22px;
+                        color: #333;
+                        float: left;
+                    }
+                    .focus_btn_wrap{
+                        display: inline-block;
+                        float: left;
+                        margin-top: 12px;
+                    }
+                    .islike_focus{
+                        margin-top: 2px;
+                        width: 72px;
+                        background: url(../../assets/images/islike.png) no-repeat top left;
+                        float: left;
+                        height: 28px;
+                        margin-left: 20px;
+                    }
+                    .card-num{
+                        margin-top: 7px;
+                        margin-left: 10px;
+                        float: left;
+                        .card_numLabel{
+                            color:#AAA;
+                        }
+                        .card_menNum,.card_infoNum{
+                            color: #ff7f3e;
+                            font-family: Arial;
+                            margin-right: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .content{
+        width: 980px;
+        margin: 0 auto;
+        min-height: 800px;
+        .list{
+            float: left;
+            width: 739px;
+            li{
+                padding: 0;
+                background-color: #fff;
+                .item{
+                    padding: 10px 0;
+                    margin: 0 20px;
+                    .item-left{
+                        float: left;
+                        min-height: 1px;
+                        width: 70px;
+                        .threadlist_rep_num{
+                            display: inline-block;
+                            width: 50px;
+                            height: 30px;
+                            line-height: 26px;
+                            margin-right: 20px;
+                            text-align: center;
+                            background: url(../../assets/images/border.png) no-repeat;
+                        }
+                    }
+                    .item-right{
+                        position: relative;
+                        min-height: 1px;
+                        margin-left: 70px;
+                        overflow: hidden;
+                        .threadlist_lz{
+                            color: #333;
+                            .threadlist_title{
+                                font-size: 14px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                width: 460px;
+                                float: left;
+                            }
+                            .threadlist_title a:visited{
+                                color: #653096;
+                            }
+                            .threadlist_author{
+                                width: 165px;
+                                color: #999;
+                                float: right;
+                            }
+                        }
+                        .threadlist_detail{
+                            padding-top: 3px;
+                            position: relative;
+                            .threadlist_text{
+                                width: 165px;
+                                color: #999;
+                                .threadlist_abs{
+                                    width: 460px;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    color: #666;
+                                }
+                            }
+                            .threadlist_author{
+                                width: 165px;
+                                color: #999;
+                                float: right;
+                                .j_replyer{
+                                    vertical-align: middle;
+                                    color: #999;
+                                    .icon_replyer{
+                                        background-image: url(../../assets/images/icon.png);
+                                        background-position: 0 -60px;
+                                    }
+                                    a{
+                                        color: #999;
+                                        text-decoration: none;
+                                    }
+                                }
+                                .threadlist_reply_date{
+                                    float: right;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .info{
+            float: right;
+            width: 238px;
+            display: inline;
+        }
+    }
+}
