@@ -116,13 +116,15 @@
     .content{
         width: 980px;
         margin: 0 auto;
-        min-height: 800px;
+        // min-height: 800px;
         .list{
             float: left;
             width: 739px;
+            background: white;
             li{
                 padding: 0;
                 background-color: #fff;
+                border-bottom: 1px dotted #e4e6eb;
                 .item{
                     padding: 10px 0;
                     margin: 0 20px;
@@ -145,8 +147,14 @@
                         min-height: 1px;
                         margin-left: 70px;
                         overflow: hidden;
+                        a{
+                            color: #999;
+                            text-decoration: none;
+                        }
                         .threadlist_lz{
                             color: #333;
+                            height: 30px;
+                            line-height: 30px;
                             .threadlist_title{
                                 font-size: 14px;
                                 overflow: hidden;
@@ -155,16 +163,37 @@
                                 width: 460px;
                                 float: left;
                             }
+                            .threadlist_title a{
+                                color: #2d64b3;
+                                text-decoration: none;
+                            }
                             .threadlist_title a:visited{
                                 color: #653096;
+                            }
+                            .threadlist_title a:hover {
+                                color: #2d64b3;
+                                text-decoration: underline;
                             }
                             .threadlist_author{
                                 width: 165px;
                                 color: #999;
                                 float: right;
+                                .tb_icon_author{
+                                    color: #999;
+                                    .icon_author{
+                                        background-position: -30px -60px;
+                                        display: inline-block;
+                                        width: 20px;
+                                        height: 20px;
+                                        vertical-align: middle;
+                                        background-image: url(../../assets/images/icon.png);
+                                    }
+                                }
                             }
                         }
                         .threadlist_detail{
+                            height: 30px;
+                            line-height: 30px;
                             padding-top: 3px;
                             position: relative;
                             .threadlist_text{
@@ -176,6 +205,7 @@
                                     text-overflow: ellipsis;
                                     white-space: nowrap;
                                     color: #666;
+                                    float: left;
                                 }
                             }
                             .threadlist_author{
@@ -186,13 +216,14 @@
                                     vertical-align: middle;
                                     color: #999;
                                     .icon_replyer{
+                                        display: inline-block;
+                                        width: 20px;
+                                        height: 20px;
                                         background-image: url(../../assets/images/icon.png);
                                         background-position: 0 -60px;
+                                        vertical-align: middle;
                                     }
-                                    a{
-                                        color: #999;
-                                        text-decoration: none;
-                                    }
+                                    
                                 }
                                 .threadlist_reply_date{
                                     float: right;
@@ -202,11 +233,213 @@
                     }
                 }
             }
+            .pagination{
+                margin-left: 20px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                li{
+                    a{
+                        color: #666;
+                    }
+                }
+            }
+            .th_footer_bright{
+                color: #999;
+                
+                .th_footer_l{
+                    width: 650px;
+                    float: left;
+                    margin-top: 7px;
+                    margin-left: 18px;
+                    margin-bottom: 3px;
+                }
+                .red_text{
+                    color: #f74d4a!important;
+                }
+            }
         }
         .info{
-            float: right;
-            width: 238px;
-            display: inline;
+            width: 241px;
+            overflow: hidden;
+            border-bottom: 1px solid #e4e6eb;
+            color: #666;
+            font-size: 12px;
+            position: absolute;
+            left: 1201px;
+            min-height: 800px;
+            background: white;
+            .infoItem{
+                float: right;
+                width: 241px;
+                display: inline;
+                position: relative;
+                overflow: hidden;
+                padding: 16px;
+                border: 1px solid #e4e6eb;
+                background: white;
+            }
+            .region_header{
+                cursor: pointer;
+                color: #333;
+                .pull_right{
+                    font-size: 12px;
+                    font-weight: 400;
+                    float: right;
+                    a{
+                        color: #2d64b3;
+                        text-decoration: none;
+                    }
+                }
+
+            }
+            .region_cnt{
+                margin-top: 10px;
+                ul{
+                    overflow: hidden;
+                }
+                em{
+                    font-style: normal
+                }
+                a {
+                    color: #2d64b3;
+                    text-decoration: none;
+                }
+                a:visited{
+                    color: #653096;
+                    
+                }
+                .media_vertical{
+                    text-align: center;
+                    float: left;
+                    width: 60px;
+                    margin-right: 10px;
+                    margin-bottom: 6px;
+                    position: relative;
+                    
+                    
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border: 0;
+                    }
+                    .media_caption{
+                        position: absolute;
+                        top: 44px;
+                        left: 30px;
+                        width: 30px;
+                        height: 16px;
+                        line-height: 16px;
+                        background: rgba(0,0,0,.5);
+                        color: #fff;
+                    }
+                    .media_bottom{
+                        margin-top: 0;
+                        display: block;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        a{
+                            color: #666;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .foot{
+        width: 980px;
+        margin: 0 auto;
+        background: url(../../assets/images/background.jpg) repeat;
+        position: relative;
+        clear: both;
+        padding: 20px 0 26px 20px;
+        text-align: left;
+        z-index: 999;
+        .poster_head_text{
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            .post_head_btn{
+                line-height: 14px;
+                margin-right: 16px;
+                font-size: 14px;
+                font-family: "Microsoft Yahei","ST Hei";
+            }
+            .cur{
+                font-size: 14px;
+                font-weight: 700;
+                color: #000;
+                cursor: auto;
+            }
+            a{
+                font-weight: 400;
+                color: #999;
+                .post_head_btn_icon{
+                    display: inline-block;
+                    width: 14px;
+                    height: 14px;
+                    background: url(../../assets/images/posterIcon.png) no-repeat;
+                    margin-right: 6px;
+                    margin-bottom: -1px;
+                }
+                .post_head_btn_icon_post{
+                    background-position:  0 0;
+                }
+                .post_head_btn_icon_vote{
+                    background-position:  0 -30px;
+                }
+            }
+        }
+        .title_container{
+            position: relative;
+            margin-bottom: 15px;
+            .editor_textfield{
+                line-height: 16px;
+                width: 640px;
+                height: 32px;
+            }
+        }
+        .poster_component{
+            position: relative;
+            margin-bottom: 15px;
+            .old_style_wrapper{
+                width: 722px;
+                border: 1px solid #dfdfdf;
+                background: #fafafa;
+                .edui-container{
+                    position: relative;
+                    .edui-toolbar{
+                        width: auto;
+                        height: 46px;
+                        background-color: #fafafa;
+                        padding: 0 14px;
+                        
+                    }
+                    .edui-editor-body{
+                        overflow-y: auto;
+                        overflow-x: hidden;
+                        border: 0;
+                        background-color: #fff;
+                        border: 1px solid #dfdfdf;
+                        textarea{
+                            resize: none;
+                            padding: 5px 0 5px 10px;
+                            word-wrap: break-word;
+                            font-size: 14px;
+                            outline: none;
+                            width: 720px;
+                            min-height: 220px;
+                            z-index: 0;
+                        }
+                    }
+                    .editor_bottom_panel{
+                        margin: 0 240px 0 0;
+                        height: 28px;
+                        padding-bottom: 15px;
+                        
+                    }
+                }
+            }
         }
     }
 }
