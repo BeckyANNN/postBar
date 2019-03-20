@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import {Link} from "react-router";
-import { Pagination,Input,Affix,Button } from 'antd';
+import { Pagination,Input,Affix,Button,BackTop, Icon } from 'antd';
 import Aside from "../aside";
 import HomeHead from "../homeHead";
 const TextArea = Input.TextArea;
@@ -326,6 +326,12 @@ export default class Home extends Component{
                     </div>
 
                 </div>
+                {/* 回到顶部 */}
+                <BackTop>
+                    <div className="toTop">
+                        <Icon type='up'/>
+                    </div>
+                </BackTop>
             </div>
                
         )

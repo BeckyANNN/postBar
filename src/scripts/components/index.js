@@ -5,6 +5,8 @@ import {hashHistory,Router,Route,IndexRedirect,Redirect} from "react-router"
 import Home from "./home"
 import App from "./app"
 import Detail from "./detail";
+import Register from "./register";
+import Info from "./info";
 export default class Layout extends Component{
     render(){
         return(
@@ -14,6 +16,8 @@ export default class Layout extends Component{
                     <IndexRedirect to="/home"/>
                     <Route path="home" component={Home}/>
                     <Route path="detail" component={Detail}/>
+                    <Route path="register" component={Register}/>
+                    <Route path="info" component={Info}/>
                 </Route>
             </Router>
         )

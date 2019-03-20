@@ -3,6 +3,19 @@
     .head{
         width: 982px;
         margin: 0 auto;
+        .login{
+            position: absolute;
+            z-index: 999;
+            right:110px;
+            top: 3px;
+            span{
+                color: #333;
+                text-decoration: underline;
+                cursor: pointer;
+                margin-right: 25px;
+                font-size: 13px;
+            }
+        }
         .banner{
             display: block;
             position: relative;
@@ -58,7 +71,6 @@
                 .card-head{
                     width: 150px;
                     height: 150px;
-                    padding: 4px;
                     overflow: hidden;
                     background: #FFF;
                     z-index: 9;
@@ -281,6 +293,7 @@
             .region_header{
                 cursor: pointer;
                 color: #333;
+                font-weight: 600;
                 .pull_right{
                     font-size: 12px;
                     font-weight: 400;
@@ -296,6 +309,24 @@
                 margin-top: 10px;
                 ul{
                     overflow: hidden;
+                    .search_back_item{
+                        display: block;
+                        max-width: 195px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        float: left;
+                        height: 20px;
+                        text-align: center;
+                        line-height: 20px;
+                        background: #fff;
+                        border-radius: 2px;
+                        border: 1px solid #e4e6eb;
+                        padding: 0 5px;
+                        margin: 3px 5px 3px 0;
+                        font-size: 12px;
+                        cursor: pointer;
+                    }
                 }
                 em{
                     font-style: normal
@@ -343,9 +374,11 @@
                         }
                     }
                 }
+                
             }
         }
     }
+  
     .foot{
         width: 980px;
         margin: 0 auto;
@@ -442,4 +475,13 @@
             }
         }
     }
+}
+.toTop{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
 }
