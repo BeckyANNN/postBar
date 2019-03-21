@@ -64,7 +64,7 @@ export default class Home extends Component{
                                     <div className="item-right">
                                         <div className="threadlist_lz">
                                             <div className="threadlist_title">
-                                                <a rel="noreferrer" href="#" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</a>
+                                                <Link to="detail" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</Link>
                                             </div>
                                             <div className="threadlist_author">
                                                 <span className="tb_icon_author" title="主题作者: 学姐有资料喔☜" data-field="{&quot;user_id&quot;:3497796971}">
@@ -100,7 +100,7 @@ export default class Home extends Component{
                                     <div className="item-right">
                                         <div className="threadlist_lz">
                                             <div className="threadlist_title">
-                                                <a rel="noreferrer" href="/p/5974503384" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</a>
+                                                <Link to="detail" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</Link>
                                             </div>
                                             <div className="threadlist_author">
                                                 <span className="tb_icon_author" title="主题作者: 学姐有资料喔☜" data-field="{&quot;user_id&quot;:3497796971}">
@@ -136,7 +136,7 @@ export default class Home extends Component{
                                     <div className="item-right">
                                         <div className="threadlist_lz">
                                             <div className="threadlist_title">
-                                                <a rel="noreferrer" href="/p/5974503384" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</a>
+                                                <Link to="detail" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</Link>
                                             </div>
                                             <div className="threadlist_author">
                                                 <span className="tb_icon_author" title="主题作者: 学姐有资料喔☜" data-field="{&quot;user_id&quot;:3497796971}">
@@ -172,7 +172,7 @@ export default class Home extends Component{
                                     <div className="item-right">
                                         <div className="threadlist_lz">
                                             <div className="threadlist_title">
-                                                <a rel="noreferrer" href="/p/5974503384" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</a>
+                                                <Link to="detail" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</Link>
                                             </div>
                                             <div className="threadlist_author">
                                                 <span className="tb_icon_author" title="主题作者: 学姐有资料喔☜" data-field="{&quot;user_id&quot;:3497796971}">
@@ -208,7 +208,7 @@ export default class Home extends Component{
                                     <div className="item-right">
                                         <div className="threadlist_lz">
                                             <div className="threadlist_title">
-                                                <a rel="noreferrer" href="#" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</a>
+                                                <Link to="detail" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</Link>
                                             </div>
                                             <div className="threadlist_author">
                                                 <span className="tb_icon_author" title="主题作者: 学姐有资料喔☜" data-field="{&quot;user_id&quot;:3497796971}">
@@ -244,7 +244,7 @@ export default class Home extends Component{
                                     <div className="item-right">
                                         <div className="threadlist_lz">
                                             <div className="threadlist_title">
-                                                <a rel="noreferrer" href="/p/5974503384" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</a>
+                                                <Link to="detail" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</Link>
                                             </div>
                                             <div className="threadlist_author">
                                                 <span className="tb_icon_author" title="主题作者: 学姐有资料喔☜" data-field="{&quot;user_id&quot;:3497796971}">
