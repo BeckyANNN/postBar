@@ -4,6 +4,7 @@ import {Link} from "react-router";
 import { Pagination,Input,Affix,Button,BackTop, Icon } from 'antd';
 import Aside from "../aside";
 import HomeHead from "../homeHead";
+import Comment from "../comment";
 const TextArea = Input.TextArea;
 
 export default class Home extends Component{
@@ -28,7 +29,7 @@ export default class Home extends Component{
                                     <div className="item-right">
                                         <div className="threadlist_lz">
                                             <div className="threadlist_title">
-                                                <a rel="noreferrer" href="/p/5974503384" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</a>
+                                                <Link to="detail" title="有考本校研究生的吗？" target="_blank" className="j_th_tit ">有考本校研究生的吗？</Link>
                                             </div>
                                             <div className="threadlist_author">
                                                 <span className="tb_icon_author" title="主题作者: 学姐有资料喔☜" data-field="{&quot;user_id&quot;:3497796971}">
@@ -287,45 +288,7 @@ export default class Home extends Component{
                    <Aside/>
                                        
                 </div>
-                <div className='foot'>
-                    <div className="poster_head_text">
-                        <a className="add_thread_btn post_head_btn cur" title="发表新贴" href="javascript:;"><span className="post_head_btn_icon post_head_btn_icon_post"></span>发表新贴</a>
-                        <a className="add_vote_btn post_head_btn" title="发起投票" target="_blank" href="#"><span className="post_head_btn_icon post_head_btn_icon_vote"></span>发起投票</a>
-                    </div>
-                    <div className="poster_body">
-                        <div className="title_container">
-                            <div className="j_title_wrap">
-                                <Input className="editor_textfield" autoComplete="off" placeholder="请填写标题"/>
-                            </div>
-                        </div>
-                        <div className="poster_component">
-                            <div className="old_style_wrapper">
-                                <div className="edui-container" style={{width: "720px"}}>
-                                    <div className="edui-toolbar">
-                                        <div className="edui-dialog-container"></div>
-                                    </div>
-                                    <div className="edui-editor-body">
-                                        <TextArea />
-                                    </div>
-                                    <div className="edui-editor-bottom"></div>
-                                    <div className="edui-editor-msg"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="poster_error j_error"></div>
-                    </div>
-                    <div className="poster_component editor_bottom_panel">
-                        <div className="j_floating">
-                            <Button type="primary" size="large">发表</Button>
-                            <span className="poster_posting_status j_posting_status"></span>
-                            <div className="poster_draft_status j_draft" style={{display: "none"}}>
-                                <span className="j_content"></span>
-                                <span title="清空草稿" className="poster_draft_delete j_clear"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <Comment type="0"/>
                 {/* 回到顶部 */}
                 <BackTop>
                     <div className="toTop">
