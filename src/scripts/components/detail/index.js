@@ -7,6 +7,12 @@ import User from "../../../assets/images/user.jpg";
 import Comment from "../comment";
 const TextArea = Input.TextArea;
 export default class Detail extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            flag:true,//是否回复
+        }
+    }
     //锚点设置
     scrollToAnchor = (anchorName) => {
         
@@ -14,6 +20,12 @@ export default class Detail extends Component{
             let anchorElement = document.getElementById(anchorName);
             if(anchorElement) { anchorElement.scrollIntoView(); }
         }
+    }
+    //收起回复
+    handleComment=()=>{
+        this.setState({
+            flag:false
+        })
     }
     render(){
         return(
@@ -132,19 +144,81 @@ export default class Detail extends Component{
                                             <li>
                                                 <span>2017-10-25 11:39</span>
                                             </li>
-                                            {/* <li>
-                                                <a href="#" className="p_reply_first" onClick={this.handleComment}>回复</a>
-                                            </li> */}
+                                            {this.state.flag?<li>
+                                                <a href="javascript:;" className="p_reply_first closeComment" onClick={this.handleComment}>收起回复</a>
+                                            </li>:
                                             <li>
-                                                <a href="#" className="p_reply_first closeComment" onClick={this.handleComment}>收起回复</a>
-                                            </li>
+                                                <a href="javascript:;" className="p_reply_first" onClick={()=>{this.setState({flag:true})}}>回复</a>
+                                            </li>}
                                         </ul>
                                         
                                     </div>
                                     <div className="small-comment">
-                                        <TextArea/>
-                                        <span className="send">发表</span>
+                                        <ul className="j_lzl_m_w">
+                                            <li className="lzl_single_post" >
+                                                <a target="_blank" className="j_user_card" href="#">
+                                                    <img src="http://tb.himg.baidu.com/sys/portrait/item/afa64b4c5fe4b98ce6a1937960"/>
+                                                </a>
+                                                <div className="lzl_cnt">
+                                                    <a className="at j_user_card " target="_blank" href="#">KL-乌恒<img src="" className="nicknameEmoji" style={{width:13,height:"13px"}}/></a>:
+                                                    <span className="lzl_content_main">
+                                                    借楼，亲，竞选双一流学科，首先要有博士点，而且是一级学科才有资格参选。入围的双非院校，都是各自学科必须排名全国前三，谁叫成都理工的地质和西南石油的专业冷门，在全国没什么竞争对手呢？
+                                                    </span>
+                                                    <div className="lzl_content_reply">
+                                                        <span className="lzl_jb" style={{display: "none"}}>
+                                                            <a href="###" className="user-jubao-button">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </a>
+                                                        </span>
+                                                        <span className="lzl_op_list j_lzl_o_l"></span>
+                                                        <span className="lzl_time">2017-9-23&nbsp;10:04</span>
+                                                        <a href="#" className="lzl_s_r">回复</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li className="lzl_single_post j_lzl_s_p ">
+                                                <a target="_blank" className="j_user_card lzl_p_p" href="#">
+                                                    <img src="http://tb.himg.baidu.com/sys/portrait/item/1316e8af97e5928ce8bf9ce696b9415141e2b6"/>
+                                                </a>
+                                                <div className="lzl_cnt">
+                                                    <a className="at j_user_card " target="_blank" href="#">风雨潇潇
+                                                        <img src="" className="nicknameEmoji"  style={{width:13,height:"13px"}}/>
+                                                    </a>:&nbsp;
+                                                    <span className="lzl_content_main">回复 Esj323<img src="" className="nicknameEmoji"  style={{width:13,height:"13px"}}/> :哦，原来气象热门
+                                                    </span>
+                                                    <div className="lzl_content_reply">
+                                                        <span className="lzl_jb" style={{display: "none"}}>
+                                                            <a href="###" className="user-jubao-button">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </a>
+                                                        </span>
+                                                        <span className="lzl_op_list j_lzl_o_l"></span>
+                                                        <span className="lzl_time">2017-9-24&nbsp;01:09</span>
+                                                        <a href="#" className="lzl_s_r">回复</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li className="lzl_single_post j_lzl_s_p ">
+                                                <a target="_blank" className="j_user_card lzl_p_p" href="#">
+                                                    <img src="http://tb.himg.baidu.com/sys/portrait/item/cface88892e68080e68980e7859c2728"/>
+                                                </a>
+                                                <div className="lzl_cnt">
+                                                    <a className="at j_user_card " target="_blank" href="#">趴趴丶猫<img src="" className="nicknameEmoji"  style={{width:13,height:"13px"}}/></a>:&nbsp;
+                                                    <span className="lzl_content_main">回复 诗和远方AQA ：毕竟咱学校的大气全国排不上数</span>
+                                                    <div className="lzl_content_reply">
+                                                        <span className="lzl_jb" style={{display: "none"}}>
+                                                            <a href="###" className="user-jubao-button">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </a>
+                                                        </span>
+                                                        <span className="lzl_op_list j_lzl_o_l"></span>
+                                                        <span className="lzl_time">2017-9-25&nbsp;23:39</span>
+                                                        <a href="#" className="lzl_s_r">回复</a>
+                                                    </div>
+                                                </div>
+                                                <div className="user-hide-post-down" style={{top: "36px", right: "170px", display: "none"}}></div>
+                                            </li>
+                                        </ul>
+                                        <div className="small-comment" style={{display:this.state.flag?"block":"none"}}>
+                                            <TextArea/>
+                                            <span className="send">发表</span>
+                                        </div>
                                     </div>
+                                    
                                 </div>
                             </div>    
                         </div>
