@@ -12,45 +12,34 @@ class Register extends Component{
         this.state={
         }
     }
-    
-    //注册
+    //登录
     handleSubmit=(e)=>{
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-              axios.post(api+register,{
-                "username":values.name,
-                "password":values.password
-                
-              }).then(res=>{
-                  console.log(res)
-                   if(res.data&&res.data.code==0){
-                       sessionStorage.token = res.data.data.token;
-                       sessionStorage.nickName = res.data.data.nickName;
-                       hashHistory.push("/home");
-                   }else{
-                       Modal.error({
-                           title:"失败",
-                           content:res.data.msg||"服务器错误，请联系管理员"
-                       })
-                   }
-              })
-            
+                axios.post(api+login,{
+                    "username":values.name,
+                    "password":values.password
+                    
+                  }).then(res=>{
+                      console.log(res)
+                       if(res.data&&res.data.code==0){
+                           sessionStorage.token = res.data.data.token;
+                           sessionStorage.nickName = res.data.data.userInfo.nickName;
+                           hashHistory.push("/home");
+                       }else{
+                           Modal.error({
+                               title:"失败",
+                               content:res.data.msg||"服务器错误，请联系管理员"
+                           })
+                       }
+                  })
             }
         });
     }
-    //跳转到登录
+    //注册
     loginBtn=()=>{
-        hashHistory.push("/login");
-    }
-    //密码校验
-    compareToFirstPassword = (rule, value, callback) => {
-        const form = this.props.form;
-        if (value && value.length<6) {
-          callback('至少输入六位密码!');
-        } else {
-          callback();
-        }
+        hashHistory.push("/register");
     }
     render(){
         const { getFieldDecorator } = this.props.form;
@@ -74,14 +63,14 @@ class Register extends Component{
                 sm: { span: 12,offset: 3 },
               },
           };
-        
+       
         return(
             <div className="register">
                 <div id="head">
-                    <h2>注册</h2>
+                    <h2>登录</h2>
                     <div className="login-link">
-                        <span>我已注册，现在就</span>
-                        <button className="login-btn" id="login_btn" onClick={this.loginBtn}>登录</button>
+                        <span>我未注册，现在就</span>
+                        <button className="login-btn" id="login_btn" onClick={this.loginBtn}>注册</button>
                     </div>
                 </div>
                 <div id='nav'></div>
@@ -99,17 +88,16 @@ class Register extends Component{
                         <Form.Item label="密码" {...tailFormItemLayout}>
                         {getFieldDecorator('password', {
                             rules: [{
-                                required: true,
-                                validator: this.compareToFirstPassword,
+                            required: true, message: 'Please input your password!',
                             }, {
                             validator: this.validateToNextPassword,
                             }],
                         })(
-                            <Input type="password" className="borderHeight" autoComplete="new-password" />
+                            <Input type="password" className="borderHeight" autoComplete="new-password"/>
                         )}
                         </Form.Item>
                         <Form.Item {...submitFormItemLayout}>
-                            <Button type="primary" htmlType="submit" style={{width:"100%"}}>注册</Button>
+                            <Button type="primary" htmlType="submit" style={{width:"100%"}}>登录</Button>
                         </Form.Item>
                     </Form>
                 </div>

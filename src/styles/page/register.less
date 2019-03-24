@@ -1,7 +1,7 @@
 .register{
     width: 100%;
     #head{
-        width: 980px;
+        width: 50%;
         margin: 20px auto 0;
         h2{
             font-size: 20px;
@@ -30,9 +30,11 @@
     #nav{
         height: 45px;
         background: url(../../assets/images/hr.png) no-repeat center 40px;
+        width: 50%;
+        margin: 0 auto;
     }
     #content{
-        width: 980px;
+        width: 50%;
         margin: 100px auto 0;
         .borderHeight{
             height: 40px;
@@ -47,9 +49,54 @@
             float: right;
             margin-left: 16px;
         }
+        .pic{
+            display: flex;
+            justify-content: space-between;
+            .picLeft,.picRight{
+                width: 45%;
+                p{
+                    height: 28px;
+                    line-height: 28px;
+                    border-bottom: 1px #cdd7d9 solid;
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #000;
+                    margin-bottom: 21px;
+                }
+                img{
+                    width: 96px;
+                    height: 96px;
+                }
+            }
+        }
+        .editInfo{
+            margin-top: 10px;
+            .ant-form-item{
+                margin-bottom: 14px;
+            }
+        }
     }
 }
 .ant-input-number-lg input{
     font-size: 14px;
     line-height: 40px;
+}
+.editPwd{
+    p{
+        margin-bottom: 16px;
+    }
+    span{
+        color: #333;
+        font-weight: 600;
+        margin-right: 10px;
+        font-size: 14px;
+    }
+    input{
+        width: 350px;
+        height: 32px;
+    }
+    .extra{
+        color: #999;
+        margin-left: 52px;
+    }
 }

@@ -1,0 +1,74 @@
+.info{
+    width: 980px;
+    margin: 10px auto 0;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ccc;
+    background: #e9f2fc;//url(../../assets/images/ibg.png) no-repeat;
+    .left{
+        width: 70%;
+        float: left;
+        background: white;
+        padding: 16px;
+        dl{
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 5px;
+            border-bottom: 1px dotted #dbe1e6;
+        }
+    }
+    .right{
+        width: 30%;
+        float: left;
+        padding: 10px;
+        .right-head{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: solid 1px #d0dbed;
+            span{
+                font-weight: 700;
+                font-size: 14px;
+            }
+            a{
+                color: #2d64b3;
+            }
+        }
+        .right-center{
+            margin: 10px 0 15px;
+            overflow: hidden;
+            width: 100%;
+            dl{
+                display: flex;
+                border-bottom: solid 1px #d0dbed;
+                padding-bottom: 20px;
+                dt{
+                    img{
+                        width: 64px;
+                        height: 64px;
+                        float: left;
+                    }
+                }
+                dd{
+                    margin-left: 9px;
+                    p:first-of-type{
+                        color: #0449be;
+                        font-weight: 700;
+                        font-size: 14px;
+                    }
+                    p:last-of-type{
+                        color: #999;
+                    }
+                }
+            }
+        }
+        .right-footer{
+            margin-top: 20px;
+            a{
+                display: block;
+                text-decoration: none;
+                color: #2d64b3;
+                line-height: 24px;
+            }
+        }
+    }
+}

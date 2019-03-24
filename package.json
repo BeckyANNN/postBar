@@ -15,6 +15,7 @@
   "dependencies": {
     "antd": "^2.13.11",
     "axios": "^0.17.0",
+    "fetch": "^1.1.0",
     "flux": "^3.1.3",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.2",
@@ -27,7 +28,8 @@
     "redux-deferred": "^0.1.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
-    "velocity": "^0.7.2"
+    "velocity": "^0.7.2",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",

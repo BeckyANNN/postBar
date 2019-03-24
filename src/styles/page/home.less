@@ -17,10 +17,17 @@
                 font-size: 13px;
             }
         }
-        .banner{
-            display: block;
-            position: relative;
-            overflow: hidden;
+        .editInfo{
+            position: absolute;
+            width: 80px;
+            height: 26px;
+            border: 1px solid #ccc;
+            line-height: 26px;
+            color: #333;
+            top: 148px;
+            left: 335px;
+            padding-left: 24px;
+            background: white url(../../assets/images/edit.png) no-repeat 5px center;
         }
         .theme{
             height: 90px;
@@ -125,14 +132,26 @@
                 }
             }
         }
+        .banner{
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        .search{
+            height: 46px;
+            background-image: linear-gradient(to bottom,#eeeff3 0,#eaeef1 100%);
+            background-repeat: repeat-x;
+        }
     }
     .content{
         width: 980px;
         margin: 0 auto;
+        overflow: hidden;
+        position: relative;
         // min-height: 800px;
         .list{
-            float: left;
-            width: 739px;
+            /* float: left;
+            width: 739px; */
             background: white;
             li{
                 padding: 0;
@@ -258,7 +277,7 @@
             }
             .th_footer_bright{
                 color: #999;
-                
+                overflow: hidden;
                 .th_footer_l{
                     width: 650px;
                     float: left;
@@ -278,8 +297,8 @@
             color: #666;
             font-size: 12px;
             position: absolute;
-            left: 1201px;
-            min-height: 800px;
+            left: 739px;
+            min-height: 550px;
             background: white;
             .infoItem{
                 float: right;

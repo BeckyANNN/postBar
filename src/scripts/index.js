@@ -14,7 +14,6 @@ var app = document.getElementById("app");
 
 import Layout from "./components"
 
-import {Provider} from "react-redux"
 
 import "./components"
 

@@ -6,7 +6,10 @@ import Home from "./home"
 import App from "./app"
 import Detail from "./detail";
 import Register from "./register";
+import Login from "./login";
 import Info from "./info";
+import Shezhi from "./shezhi";
+import List from "./list";
 export default class Layout extends Component{
     render(){
         return(
@@ -17,7 +20,10 @@ export default class Layout extends Component{
                     <Route path="home" component={Home}/>
                     <Route path="detail" component={Detail}/>
                     <Route path="register" component={Register}/>
+                    <Route path="login" component={Login}/>
                     <Route path="info" component={Info}/>
+                    <Route path="shezhi" component={Shezhi}/>
+                    <Route path="list" component={List}/>
                 </Route>
             </Router>
         )
