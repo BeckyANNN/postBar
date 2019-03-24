@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
 import {Link,hashHistory} from "react-router";
-import { Pagination,Input,Affix,Button,BackTop, Icon,Modal } from 'antd';
+import { Pagination,Input,Affix,Button,BackTop, Icon,Modal,Select } from 'antd';
 import axios from "axios";
 import "../../../assets/js/api.js";
 import Base from "../base";
 const TextArea = Input.TextArea;
-
+const Option = Select.Option;
 export default class Comment extends Base{
     constructor(props){
         super(props);
@@ -61,6 +61,10 @@ export default class Comment extends Base{
             hashHistory.push('/login');
         }
     }
+    //文章类别
+    handleType=()=>{
+
+    }
     render(){
         return(
             <div className='foot' style={{padding:this.props.type=='1'?"20px 0 26px 90px":"20px 0 26px 20px"}} id="comment">
@@ -71,6 +75,11 @@ export default class Comment extends Base{
                         {this.props.type==1||<div className="title_container">
                             <div className="j_title_wrap">
                                 <Input className="editor_textfield" autoComplete="off" placeholder="请填写标题" onChange={this.handleTitle} value={this.state.title}/>
+                                <Select onChange={this.handleType} style>
+                                    <Option></Option>
+                                    <Option></Option>
+                                    <Option></Option>
+                                </Select>
                             </div>
                         </div>}
                         <div className="poster_component">

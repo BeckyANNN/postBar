@@ -13,12 +13,12 @@ export default class Home extends Component{
         super(props);
         this.state={
             top: 5,
-            tabs:"看帖",
+            tabs:"",
             pageSize:2,
             pageNum:1,//当前页
             list:[],//贴子列表
-            total:0,
-            loading:false
+            loading:false,
+            allCount:0
         }
     }
     componentDidMount=()=>{
@@ -30,7 +30,13 @@ export default class Home extends Component{
         this.setState({
             loading:true
         })
-        axios.get(api+topicList+"?page="+pageNum+"&size="+pageSize+"&type="+tabs).then(res=>{
+        let url = '';
+        if(tabs){
+            url = api+topicList+"?page="+pageNum+"&size="+pageSize+"&type="+tabs
+        }else{
+            url = api+topicList+"?page="+pageNum+"&size="+pageSize
+        }
+        axios.get(url).then(res=>{
             this.setState({
                 loading:false
             })
@@ -48,11 +54,13 @@ export default class Home extends Component{
                         })
                    }
                    
-                   if(res.data.pageDate){
+                   if(res.data.pageData){
+                       console.log(res.data.pageData)
                        this.setState({
-                            pageNum:res.data.pageDate.curPage,
-                            pageSize:res.data.pageDate.curSize,
-                            total:res.data.pageDate.count,
+                            pageNum:res.data.pageData.curPage,
+                            allCount:res.data.pageData.allCount
+                       },()=>{
+                           console.log(this.state.allCount)
                        })
                    }
                }else{
@@ -69,7 +77,7 @@ export default class Home extends Component{
     handleTabs=(value)=>{
         console.log(value)
         this.setState({
-            tabs:value
+            tabs:value, 
         },()=>{
             this.getList();
         })
@@ -83,23 +91,27 @@ export default class Home extends Component{
     //分页
     handlePagiantion=(value)=>{
         console.log(value)
+        this.setState({
+            pageNum:value
+        },()=>{
+            this.getList();
+        })
     }
     render(){
-        const {list,total} = this.state;
-        console.log(total)
+        const {list,allCount} = this.state;
+        console.log(allCount)
         return(
             <div className='wrap1'>
                 <HomeHead/>
                 <div className="content">
-                    <Tabs defaultActiveKey="看帖" onChange={this.handleTabs}>
-                                            
-                        <TabPane tab="看帖" key="看帖">
+                    <Tabs defaultActiveKey="" onChange={this.handleTabs}>
+                        <TabPane tab="看帖" key="">
                             <div className="list">
                                 <ul>
                                     {
                                         list.map((item,index)=>{
                                             return(
-                                                <li key={index}>
+                                                <li key={index} className="listItem">
                                                     <div className="item">
                                                         <div className="item-left">
                                                             <span className="threadlist_rep_num">{item.commentNum}</span>
@@ -139,15 +151,15 @@ export default class Home extends Component{
                                         })
                                     }
                                 </ul>
-                                <Pagination current={this.state.pageNum} pageSize={this.state.pageSize} total={total} className='pagination' onChange={this.handlePagiantion}/>
+                                <Pagination current={this.state.pageNum} pageSize={this.state.pageSize} total={allCount} className='pagination' onChange={this.handlePagiantion}/>
                                 <div className="th_footer_bright">
                                     <div className="th_footer_l">贴子数
-                                        <span className="red_text">5208132</span>篇&nbsp;
+                                        <span className="red_text">{allCount}</span>篇&nbsp;
                                     </div>
                                 </div>
                             </div>
                         </TabPane>
-                        <TabPane tab="精品" key="精品">
+                        <TabPane tab="精品" key="boutique">
                             <div className="list">
                             <ul>
                             {

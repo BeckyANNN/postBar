@@ -39,7 +39,8 @@ class homeHead extends Base{
                 </div>
                 
                 <div className="search">
-                    <Search placeholder="贴子关键字" style={{lineHeight:"46px",float:"right",marginRight:16,width:"28%"}}/>
+                    {/* <Search placeholder="贴子关键字" style={{lineHeight:"46px",float:"right",marginRight:16,width:"28%"}}/> */}
+                    <p>留言板</p>
                 </div>
             </div>
         )
