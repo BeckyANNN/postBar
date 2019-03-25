@@ -75,11 +75,11 @@ export default class Comment extends Base{
                         {this.props.type==1||<div className="title_container">
                             <div className="j_title_wrap">
                                 <Input className="editor_textfield" autoComplete="off" placeholder="请填写标题" onChange={this.handleTitle} value={this.state.title}/>
-                                <Select onChange={this.handleType} style>
+                                {/* <Select onChange={this.handleType} style>
                                     <Option></Option>
                                     <Option></Option>
                                     <Option></Option>
-                                </Select>
+                                </Select> */}
                             </div>
                         </div>}
                         <div className="poster_component">
