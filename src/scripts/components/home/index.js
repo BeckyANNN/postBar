@@ -120,7 +120,7 @@ export default class Home extends Component{
                                                         <div className="item-right">
                                                             <div className="threadlist_lz">
                                                                 <div className="threadlist_title">
-                                                                    <Link to="detail" title={item.title} target="_blank" className="j_th_tit ">{item.title}</Link>
+                                                                    <Link to={"/detail/"+item.id} title={item.title} target="_blank" className="j_th_tit">{item.title}</Link>
                                                                 </div>
                                                                 <div className="threadlist_author">
                                                                     <span className="tb_icon_author">

@@ -6,13 +6,24 @@ import Head from "../homeHead";
 import User from "../../../assets/images/user.jpg";
 import Comment from "../comment";
 const TextArea = Input.TextArea;
-export default class Detail extends Component{
+import Base from "../base";
+export default class Detail extends Base{
     constructor(props){
         super(props);
         this.state={
             flag:true,//是否展示回复列表
             isComment:false,//是否回复
         }
+    }
+    componentDidMount=()=>{
+        console.log(this.props.params.id)
+        this.getDetail();
+    }
+    //获取贴子详情
+    getDetail=()=>{
+        this.fetchGet(api+detail+"/"+this.props.params.id,json=>{
+            console.log(json)
+        })
     }
     //锚点设置
     scrollToAnchor = (anchorName) => {

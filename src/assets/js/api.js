@@ -8,3 +8,4 @@ var info = "/api/user/info";//个人信息
 var topicList = "/api/topics/index";//获取贴子列表
 var addTopic = "/api/topics/one";//添加贴子
 var upload = "/api/common/upload";//上传头像
+var detail = "/api/topics/one";//贴子详情

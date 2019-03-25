@@ -18,7 +18,7 @@ export default class Layout extends Component{
                 <Route path="/" component={App}>
                     <IndexRedirect to="/home"/>
                     <Route path="home" component={Home}/>
-                    <Route path="detail" component={Detail}/>
+                    <Route path="detail/:id" component={Detail}/>
                     <Route path="register" component={Register}/>
                     <Route path="login" component={Login}/>
                     <Route path="info" component={Info}/>
