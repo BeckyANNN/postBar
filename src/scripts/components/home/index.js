@@ -6,6 +6,7 @@ import HomeHead from "../homeHead";
 import Comment from "../comment";
 import axios from "axios";
 import "../../../assets/js/api.js";
+import Empty from "../../../assets/images/empty.svg";
 const TextArea = Input.TextArea;
 const TabPane = Tabs.TabPane;
 export default class Home extends Component{
@@ -106,7 +107,7 @@ export default class Home extends Component{
                 <div className="content">
                     <Tabs defaultActiveKey="" onChange={this.handleTabs}>
                         <TabPane tab="看帖" key="">
-                            <div className="list">
+                            {list.length>0?<div className="list">
                                 <ul>
                                     {
                                         list.map((item,index)=>{
@@ -157,55 +158,61 @@ export default class Home extends Component{
                                         <span className="red_text">{allCount}</span>篇&nbsp;
                                     </div>
                                 </div>
-                            </div>
+                            </div>:<div className="empty">
+                                    <img src={Empty}/>
+                                    <p>暂无数据</p>
+                            </div>}
                         </TabPane>
                         <TabPane tab="精品" key="boutique">
-                            <div className="list">
-                            <ul>
-                            {
-                                list.map((item,index)=>{
-                                    return(
-                                        <li key={index}>
-                                            <div className="item">
-                                                <div className="item-left">
-                                                    <span className="threadlist_rep_num">{item.commentNum}</span>
-                                                </div>
-                                                <div className="item-right">
-                                                    <div className="threadlist_lz">
-                                                        <div className="threadlist_title">
-                                                            <Link to="detail" title={item.title} target="_blank" className="j_th_tit ">{item.title}</Link>
+                            {list.length>0?<div className="list">
+                                <ul>
+                                    {
+                                        list.map((item,index)=>{
+                                            return(
+                                                <li key={index}>
+                                                    <div className="item">
+                                                        <div className="item-left">
+                                                            <span className="threadlist_rep_num">{item.commentNum}</span>
                                                         </div>
-                                                        <div className="threadlist_author">
-                                                            <span className="tb_icon_author">
-                                                                <i className="icon_author"></i>
-                                                                <span className="frs-author-name-wrap">
-                                                                    <a rel="noreferrer" className="frs-author-name j_user_card " href="#" target="_blank">{item.authorName}</a>
+                                                        <div className="item-right">
+                                                            <div className="threadlist_lz">
+                                                                <div className="threadlist_title">
+                                                                    <Link to="detail" title={item.title} target="_blank" className="j_th_tit ">{item.title}</Link>
+                                                                </div>
+                                                                <div className="threadlist_author">
+                                                                    <span className="tb_icon_author">
+                                                                        <i className="icon_author"></i>
+                                                                        <span className="frs-author-name-wrap">
+                                                                            <a rel="noreferrer" className="frs-author-name j_user_card " href="#" target="_blank">{item.authorName}</a>
+                                                                            </span>
+                                                                            <span className="icon_wrap  icon_wrap_theme1 frs_bright_icons "></span>    
+                                                                        </span>
+                                                                    <span className="pull-right is_show_create_time" title="创建时间" style={{marginLeft:"8px"}}>{this.changeTime(item.createDate)}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className="threadlist_detail" style={{display:item.lastAnswerName?"block":"none"}}>
+                                                                <div className="threadlist_text">
+                                                                    <div className="threadlist_abs">{item.title}</div>
+                                                                </div>
+                                                                <div className="threadlist_author">
+                                                                    <span className="j_replyer">
+                                                                        <i className="icon_replyer"></i>
+                                                                        <a rel="noreferrer" className="frs-author-name j_user_card " target="_blank">{item.lastAnswerName}</a>        
                                                                     </span>
-                                                                    <span className="icon_wrap  icon_wrap_theme1 frs_bright_icons "></span>    
-                                                                </span>
-                                                            <span className="pull-right is_show_create_time" title="创建时间" style={{marginLeft:"8px"}}>{this.changeTime(item.createDate)}</span>
+                                                                    <span className="threadlist_reply_date" title="最后回复时间">{item.lastCommentTime}</span>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div className="threadlist_detail" style={{display:item.lastAnswerName?"block":"none"}}>
-                                                        <div className="threadlist_text">
-                                                            <div className="threadlist_abs">{item.title}</div>
-                                                        </div>
-                                                        <div className="threadlist_author">
-                                                            <span className="j_replyer">
-                                                                <i className="icon_replyer"></i>
-                                                                <a rel="noreferrer" className="frs-author-name j_user_card " target="_blank">{item.lastAnswerName}</a>        
-                                                            </span>
-                                                            <span className="threadlist_reply_date" title="最后回复时间">{item.lastCommentTime}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    )
-                                })
-                            }
-                        </ul>
-                            </div>
+                                                </li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            </div>:<div className="empty">
+                                    <img src={Empty}/>
+                                    <p>暂无数据</p>
+                            </div>}
                         </TabPane>
                     </Tabs>
                               
