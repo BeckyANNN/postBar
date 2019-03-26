@@ -56,6 +56,30 @@ export default class Comment extends Base{
                         }
                     })
                 }
+            }else{
+                if(this.props.topicId){
+                    this.fetchPost(api+comment,{
+                        toUserId:this.props.authorId,
+                        content:this.state.content,
+                        topicId:this.props.topicId
+                    },json=>{
+                        if(json.code==0){
+                            Modal.success({
+                                title:"成功",
+                                content:"评论成功"
+                            })
+                            this.setState({
+                                content:""
+                            })
+                            this.props.getDetail()
+                        }else{
+                            Modal.error({
+                                title:"失败",
+                                content:json.msg||"服务器错误，请联系管理员"
+                            })
+                        }
+                    })
+                }
             }
         }else{
             hashHistory.push('/login');

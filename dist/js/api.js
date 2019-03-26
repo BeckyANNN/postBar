@@ -1,5 +1,5 @@
-// var api = 'http://192.168.1.102:10000';
-var api = 'http://106.12.90.33:10000';
+var api = 'http://192.168.1.102:10000';
+// var api = 'http://106.12.90.33:10000';
 
 var register = "/api/user/sign_up";//注册
 var login  = "/api/user/sign_in";//登录
@@ -9,3 +9,4 @@ var topicList = "/api/topics/index";//获取贴子列表
 var addTopic = "/api/topics/one";//添加贴子
 var upload = "/api/common/upload";//上传头像
 var detail = "/api/topics/one";//贴子详情
+var comment = "/api/comments/one";//回复评论

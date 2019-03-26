@@ -35,6 +35,12 @@ export default class Base extends Component {
 			sessionStorage.clear();
 		}
 	}
+	 //将时间戳转换为时间
+	 changeTime=(date)=>{
+        let timestamp4 = new Date(date);//直接用 new Date(时间戳) 格式转化获得当前时间
+        let time = timestamp4.toLocaleDateString().replace(/\//g, "-") + " " + timestamp4.toTimeString().substr(0, 8);
+        return time;
+    }
     fetchPost=(url, obj, cb)=>{
 		let p = fetch(url, {
 			method: "POST",
