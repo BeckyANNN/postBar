@@ -5,16 +5,78 @@
     position: relative;
     border: 1px solid #ccc;
     background: #e9f2fc;//url(../../assets/images/ibg.png) no-repeat;
+    min-height: 250px;
     .left{
         width: 70%;
         float: left;
         background: white;
         padding: 16px;
+        min-height: 250px;
+        position: relative;
         dl{
             display: flex;
             justify-content: space-between;
             padding: 8px 5px;
             border-bottom: 1px dotted #dbe1e6;
+            .list{
+                margin-right: 16px;
+            }
+        }
+        .item{
+            float: left;
+            width: 86%;
+            padding: 20px 0 21px 10px;
+            border-bottom: 1px dotted #E0E0E0;
+            .author{
+                font-size: 14px;
+                line-height: 20px;
+                padding-bottom: 10px;
+                span{
+                    position: absolute;
+                    right: 16px;
+                    color: #989898;
+                    font-size: 12px;
+                }
+            }
+            .author+p{
+                color: #989898;
+                font-size: 12px;
+                span{
+                    font-size: 14px;
+                    color:black;
+                }
+                .reComment{
+                    position: absolute;
+                    right: 16px;
+                    color: #989898;
+                    background: url(../../assets/images/replyPop.gif) no-repeat 3px 4px;
+                    width: 45px;
+                    text-align: right;
+                }
+            }
+        }
+    }
+    .empty{
+        width: 70%;
+        float: left;
+        background: white;
+        min-height: 250px;
+        position: relative;
+        img{
+            position: absolute;
+            top: 0;
+                left: 0;
+                right:0;
+                bottom: 0;
+                margin: auto;
+                float: left;
+                width: 184px;
+                height: 152px;
+        }
+        p{
+            text-align: center;
+            padding-top: 203px;
+            color: #999;
         }
     }
     .right{
@@ -68,6 +130,12 @@
                 text-decoration: none;
                 color: #2d64b3;
                 line-height: 24px;
+                padding-left: 8px;
+            }
+            .active{
+                background: white;
+                color:black;
+                font-weight: 600;
             }
         }
     }

@@ -57,6 +57,7 @@ export default class Comment extends Base{
                     })
                 }
             }else{
+                console.log(this.props.topicId)
                 if(this.props.topicId){
                     this.fetchPost(api+comment,{
                         toUserId:this.props.authorId,

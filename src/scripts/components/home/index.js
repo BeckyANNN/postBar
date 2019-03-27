@@ -17,7 +17,7 @@ export default class Home extends Component{
             tabs:"",
             pageSize:2,
             pageNum:1,//当前页
-            list:[],//贴子列表
+            list:[],//留言列表
             loading:false,
             allCount:0
         }
@@ -25,7 +25,7 @@ export default class Home extends Component{
     componentDidMount=()=>{
         this.getList();
     }
-    //获取贴子列表
+    //获取留言列表
     getList=()=>{
         const {pageNum,pageSize,tabs} = this.state;
         this.setState({
@@ -115,7 +115,7 @@ export default class Home extends Component{
                                                 <li key={index} className="listItem">
                                                     <div className="item">
                                                         <div className="item-left">
-                                                            <span className="threadlist_rep_num">{item.commentNum}</span>
+                                                            <span className="threadlist_rep_num">{item.commentNum-1}</span>
                                                         </div>
                                                         <div className="item-right">
                                                             <div className="threadlist_lz">
@@ -154,7 +154,7 @@ export default class Home extends Component{
                                 </ul>
                                 <Pagination current={this.state.pageNum} pageSize={this.state.pageSize} total={allCount} className='pagination' onChange={this.handlePagiantion}/>
                                 <div className="th_footer_bright">
-                                    <div className="th_footer_l">贴子数
+                                    <div className="th_footer_l">留言数
                                         <span className="red_text">{allCount}</span>篇&nbsp;
                                     </div>
                                 </div>

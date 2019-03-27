@@ -23,7 +23,7 @@ export default class Detail extends Base{
         console.log(this.props.params.id)
         this.getDetail();
     }
-    //获取贴子详情
+    //获取留言详情
     getDetail=()=>{
         this.fetchGet(api+detail+"/"+this.props.params.id,json=>{
             console.log(json);
@@ -47,34 +47,34 @@ export default class Detail extends Base{
             if(anchorElement) { anchorElement.scrollIntoView(); }
         }
     }
-    //收起回复
-    handleComment=(index,e)=>{
-        console.log(11111111111111)
-        console.log(e.target)
-        e.target.innerText = "回复";
-        $(e.target).removeClass("closeComment");
-        let oDiv = document.getElementsByClassName("small-comment");
-        for(let i=0;i<oDiv.length;i++){
-            console.log($(oDiv[i]).attr("data-index"),index)
-            if($(oDiv[i]).attr("data-index")==index){
-                $(oDiv[i]).css({display:"none"})
-            }
-        }
-        this.setState({
-            content:'',
-            oIndex:index
-        })
-    }
-    //展开回复
+    
+    //展开/收起回复
     handleExpend=(index,e)=>{
-        e.target.innerText = "收起回复";
-        $(e.target).addClass("closeComment");
-        let oDiv = document.getElementsByClassName("small-comment");
-        for(let i=0;i<oDiv.length;i++){
-            if($(oDiv[i]).attr("data-index")==index){
-                $(oDiv[i]).css({display:"block"})
+        if(e.target.innerText=="回复"){
+            e.target.innerText = "收起回复";
+            $(e.target).addClass("closeComment");
+            let oDiv = document.getElementsByClassName("small-comment");
+            for(let i=0;i<oDiv.length;i++){
+                if($(oDiv[i]).attr("data-index")==index){
+                    $(oDiv[i]).css({display:"block"})
+                }
             }
+        }else{
+            e.target.innerText = "回复";
+            $(e.target).removeClass("closeComment");
+            let oDiv = document.getElementsByClassName("small-comment");
+            for(let i=0;i<oDiv.length;i++){
+                console.log($(oDiv[i]).attr("data-index"),index)
+                if($(oDiv[i]).attr("data-index")==index){
+                    $(oDiv[i]).css({display:"none"})
+                }
+            }
+            this.setState({
+                content:'',
+                oIndex:index
+            })
         }
+        
     }
     isComment=(index)=>{
         
@@ -99,7 +99,7 @@ export default class Detail extends Base{
             topicId:detail.id,
             fatherCommentId:id
         }
-        console.log(datat)
+        console.log(data)
         this.fetchPost(api+comment,data,json=>{
             console.log(json);
             if(json.code==0){
@@ -138,7 +138,7 @@ export default class Detail extends Base{
                         <div className='title'>
                             <p>{detail.title}</p>
                             <div className="titleBtn">
-                                <span className="lzonly_cntn">只看楼主</span>
+                                {/* <span className="lzonly_cntn">只看楼主</span> */}
                                 <span className="j_quick_reply" onClick={()=>this.scrollToAnchor("comment")}>回复</span>
                             </div>
                         </div> 
@@ -154,15 +154,15 @@ export default class Detail extends Base{
                                 <ul className="p_author">
                                     <li className="icon">
                                         <div className="icon_relative j_user_card">
-                                            <a target="_blank" className="p_author_face " href="#">
+                                            <Link to="list" className="p_author_face " href="javascript:;">
                                                 <img className="" src={detail.authorAvatar}/>
-                                            </a>
+                                            </Link>
                             
                                         </div>
                                     </li>
                                     <li className="d_nameplate"></li>
                                     <li className="d_name">
-                                        <a className="p_author_name j_user_card" href="#" target="_blank">{detail.authorName}</a>
+                                        <a className="p_author_name j_user_card" href="javascript:;" target="_blank">{detail.authorName}</a>
                                     </li>
                                    
                                 </ul>
@@ -191,7 +191,12 @@ export default class Detail extends Base{
                             comments.map((item,index)=>{
                                 return(
                                     <div className="listItem" key={index}>
-                                        <div className="d_author">    				
+                                        <div className="d_author"> 
+                                            <div className="louzhubiaoshi_wrap" style={{display:item.authorName==sessionStorage.nickName?"block":"none"}}>
+                                                <div className="louzhubiaoshi">
+                                                    <a href="#"></a>
+                                                </div>
+                                            </div>	   				
                                             <ul className="p_author">
                                                 <li className="icon">
                                                     <div className="icon_relative j_user_card">
@@ -218,12 +223,9 @@ export default class Detail extends Base{
                                                             <li>
                                                                 <span>{this.changeTime(item.createTime)}</span>
                                                             </li>
-                                                            {item.sunComment&&item.sunComment.length>0?<li>
-                                                               <a href="javascript:;" className="p_reply_first closeComment" onClick={(e)=>this.handleComment(index,e)}>收起回复</a>
-                                                            </li>:
                                                             <li>
-                                                                <a href="javascript:;" className="p_reply_first" onClick={(e)=>this.handleExpend(index,e)}>回复</a>
-                                                            </li>}
+                                                                <a href="javascript:;" className="p_reply_first" onClick={(e)=>this.handleExpend(index,e)}>{item.sunComment&&item.sunComment.length>0?"收起回复":"回复"}</a>
+                                                            </li>
                                                         </ul>
                                                         
                                                     </div>
