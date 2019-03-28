@@ -156,7 +156,7 @@ export default class Detail extends Base{
                                 <ul className="p_author">
                                     <li className="icon">
                                         <div className="icon_relative j_user_card">
-                                            <a href="javascript:;" className="p_author_face " onClick={()=>this.handleList(item.authorId)}>
+                                            <a href="javascript:;" className="p_author_face " onClick={()=>this.handleList(detail.authorId)}>
                                                 <img className="" src={detail.authorAvatar}/>
                                             </a>
                             
