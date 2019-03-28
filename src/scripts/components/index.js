@@ -23,7 +23,7 @@ export default class Layout extends Component{
                     <Route path="login" component={Login}/>
                     <Route path="info" component={Info}/>
                     <Route path="shezhi" component={Shezhi}/>
-                    <Route path="list" component={List}/>
+                    <Route path="list/:id" component={List}/>
                 </Route>
             </Router>
         )

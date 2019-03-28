@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import {Link} from "react-router";
+import {Link,hashHistory} from "react-router";
 import { Pagination,Icon,Affix,BackTop,Input, Button,Modal } from 'antd';
 import Head from "../homeHead";
 import User from "../../../assets/images/user.jpg";
@@ -117,9 +117,17 @@ export default class Detail extends Base{
             }
         })
     }
+    //跳转到个人列表
+    handleList=(id)=>{
+        if(sessionStorage.token){
+            hashHistory.push("list/"+id)
+        }else{
+            hashHistory.push('/login');
+        }
+    }
     render(){
         const {isComment,detail,comments,oIndex} = this.state;
-        console.log(oIndex)
+        console.log(detail,comments)
         return(
             <div className="detail wrap1">
                 <Head/>
@@ -154,9 +162,9 @@ export default class Detail extends Base{
                                 <ul className="p_author">
                                     <li className="icon">
                                         <div className="icon_relative j_user_card">
-                                            <Link to="list" className="p_author_face " href="javascript:;">
+                                            <a href="javascript:;" className="p_author_face " onClick={()=>this.handleList(item.authorId)}>
                                                 <img className="" src={detail.authorAvatar}/>
-                                            </Link>
+                                            </a>
                             
                                         </div>
                                     </li>
@@ -192,7 +200,7 @@ export default class Detail extends Base{
                                 return(
                                     <div className="listItem" key={index}>
                                         <div className="d_author"> 
-                                            <div className="louzhubiaoshi_wrap" style={{display:item.authorName==sessionStorage.nickName?"block":"none"}}>
+                                            <div className="louzhubiaoshi_wrap" style={{display:item.authorName==detail.authorName?"block":"none"}}>
                                                 <div className="louzhubiaoshi">
                                                     <a href="#"></a>
                                                 </div>
@@ -200,7 +208,7 @@ export default class Detail extends Base{
                                             <ul className="p_author">
                                                 <li className="icon">
                                                     <div className="icon_relative j_user_card">
-                                                        <a target="_blank" className="p_author_face " href="#">
+                                                        <a className="p_author_face " href="javascript:;" onClick={()=>this.handleList(item.userId)}>
                                                             <img className="" src={item.authorAvatar}/>
                                                         </a>
                                         
