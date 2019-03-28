@@ -22,14 +22,12 @@ export default class List extends Base{
         }
     }
     componentDidMount=()=>{
-        console.log(this.props.params.id)
         this.getInfo();
         this.getList();
     }
     //获取个人信息
     getInfo=()=>{
         this.fetchGet(api+info+"?authorId="+this.props.params.id,json=>{
-            console.log(json)
             if(json.code==0){
                 this.setState({
                     name:json.data.username,
@@ -44,7 +42,6 @@ export default class List extends Base{
     //查询我的贴子列表
     getList=()=>{
         this.fetchGet(api+topicList,json=>{
-            console.log(json)
             if(json.code==0){
                 if(json.data&&json.data.length>0){
                     this.setState({

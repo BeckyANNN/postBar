@@ -86,8 +86,6 @@ export default class Info extends Base{
     }
     render(){
         const {list,xiaoxi,flag} = this.state;
-        console.log(list,xiaoxi,flag);
-        console.log(flag&&list.length>0,!flag&&xiaoxi.length>0)
         return(
             <div className="info">
             {

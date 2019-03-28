@@ -3,7 +3,6 @@ import Banner from "../../../assets/images/banner.jpg";
 import Timg from "../../../assets/images/timg.jpg";
 import User from "../../../assets/images/user3.jpg";
 import {Modal,Form, Input, Upload, Icon, Button,Radio,InputNumber } from "antd";
-import "../../../assets/js/api.js";
 import $ from "jquery";
 import axios from "axios";
 import Base from "../base";
@@ -46,7 +45,6 @@ class Shezhi extends Base{
     //获取个人信息
     getInfo=()=>{
         this.fetchGet(api+info,json=>{
-            console.log(json)
             if(json.code==0){
                 this.setState({
                     name:json.data.username,
@@ -101,7 +99,6 @@ class Shezhi extends Base{
                 "oldPwd":this.state.oldPwd,
                 "newPwd":this.state.pwd
             },json=>{
-                console.log(json);
                 if(json.code==0&&json.data.result){
                     Modal.success({
                         title:"成功",
@@ -131,7 +128,6 @@ class Shezhi extends Base{
         const {fileList} = this.state;
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
-            console.log(values)
             if (!err) {
                 this.fetchPost(api+info,{
                     "sex":values.sex,
@@ -164,7 +160,6 @@ class Shezhi extends Base{
     render(){
         const { getFieldDecorator } = this.props.form;
         const {flag,previewVisible, previewImage, fileList,valid} = this.state;
-        console.log(this.state.fileList)
         const tailFormItemLayout = {
             labelCol: {
                 xs: { span: 24 },

@@ -5,7 +5,6 @@ import { Pagination,Input,Affix,Button,BackTop, Icon,Modal,Tabs,Spin } from 'ant
 import HomeHead from "../homeHead";
 import Comment from "../comment";
 import axios from "axios";
-import "../../../assets/js/api.js";
 import Empty from "../../../assets/images/empty.svg";
 const TextArea = Input.TextArea;
 const TabPane = Tabs.TabPane;
@@ -41,7 +40,6 @@ export default class Home extends Component{
             this.setState({
                 loading:false
             })
-              console.log(res)
                if(res.data&&res.status==200){
                    if(res.data.data){
                         this.setState({
@@ -56,12 +54,9 @@ export default class Home extends Component{
                    }
                    
                    if(res.data.pageData){
-                       console.log(res.data.pageData)
                        this.setState({
                             pageNum:res.data.pageData.curPage,
                             allCount:res.data.pageData.allCount
-                       },()=>{
-                           console.log(this.state.allCount)
                        })
                    }
                }else{
@@ -76,7 +71,6 @@ export default class Home extends Component{
     
     //切换看帖和精品
     handleTabs=(value)=>{
-        console.log(value)
         this.setState({
             tabs:value, 
         },()=>{
@@ -91,7 +85,6 @@ export default class Home extends Component{
     }
     //分页
     handlePagiantion=(value)=>{
-        console.log(value)
         this.setState({
             pageNum:value
         },()=>{
@@ -100,7 +93,6 @@ export default class Home extends Component{
     }
     render(){
         const {list,allCount} = this.state;
-        console.log(allCount)
         return(
             <div className='wrap1'>
                 <HomeHead/>

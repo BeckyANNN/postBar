@@ -20,13 +20,11 @@ export default class Detail extends Base{
         }
     }
     componentDidMount=()=>{
-        console.log(this.props.params.id)
         this.getDetail();
     }
     //获取留言详情
     getDetail=()=>{
         this.fetchGet(api+detail+"/"+this.props.params.id,json=>{
-            console.log(json);
             if(json.code==0){
                 this.setState({
                     detail:json.data
@@ -64,7 +62,6 @@ export default class Detail extends Base{
             $(e.target).removeClass("closeComment");
             let oDiv = document.getElementsByClassName("small-comment");
             for(let i=0;i<oDiv.length;i++){
-                console.log($(oDiv[i]).attr("data-index"),index)
                 if($(oDiv[i]).attr("data-index")==index){
                     $(oDiv[i]).css({display:"none"})
                 }
@@ -99,9 +96,7 @@ export default class Detail extends Base{
             topicId:detail.id,
             fatherCommentId:id
         }
-        console.log(data)
         this.fetchPost(api+comment,data,json=>{
-            console.log(json);
             if(json.code==0){
                 this.setState({
                     content:""
@@ -127,7 +122,6 @@ export default class Detail extends Base{
     }
     render(){
         const {isComment,detail,comments,oIndex} = this.state;
-        console.log(detail,comments)
         return(
             <div className="detail wrap1">
                 <Head/>

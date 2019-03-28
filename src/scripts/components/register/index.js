@@ -3,7 +3,6 @@ import Banner from "../../../assets/images/banner.jpg";
 import Timg from "../../../assets/images/timg.jpg";
 import {Modal,Form, Input, Icon, Button} from "antd";
 import {Link,hashHistory} from "react-router";
-import "../../../assets/js/api.js";
 import $ from "jquery";
 import axios from "axios";
 class Register extends Component{
@@ -23,7 +22,6 @@ class Register extends Component{
                 "password":values.password
                 
               }).then(res=>{
-                  console.log(res)
                    if(res.data&&res.data.code==0){
                        sessionStorage.token = res.data.data.token;
                        sessionStorage.nickName = res.data.data.nickName;

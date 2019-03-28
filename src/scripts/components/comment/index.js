@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import {Link,hashHistory} from "react-router";
 import { Pagination,Input,Affix,Button,BackTop, Icon,Modal,Select } from 'antd';
 import axios from "axios";
-import "../../../assets/js/api.js";
 import Base from "../base";
 const TextArea = Input.TextArea;
 const Option = Select.Option;
@@ -37,7 +36,6 @@ export default class Comment extends Base{
                         content:this.state.content,
                         type:this.props.tabs
                     },json=>{
-                        console.log(json)
                         if(json.code==0){
                             this.setState({
                                 title:"",
@@ -57,7 +55,6 @@ export default class Comment extends Base{
                     })
                 }
             }else{
-                console.log(this.props.topicId)
                 if(this.props.topicId){
                     this.fetchPost(api+comment,{
                         toUserId:this.props.authorId,
