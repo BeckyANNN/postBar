@@ -15,11 +15,28 @@ export default class Info extends Base{
             list:[],
             xiaoxi:[],
             flag:true,//留言：true,消息：false
+            nickName:"",
+            sex:"",
+            avatar:""
         }
     }
     componentDidMount=()=>{
         this.getList();
         this.getInfoList();
+        this.getInfo();
+    }
+    //获取个人信息
+    getInfo=()=>{
+        this.fetchGet(api+info,json=>{
+            if(json.code==0){
+                this.setState({
+                    name:json.data.username,
+                    nickName:json.data.nickName,
+                    sex:json.data.sex,
+                    avatar:json.data.avatar
+                })
+            }
+        })
     }
     //查询我的贴子列表
     getList=()=>{
@@ -85,7 +102,7 @@ export default class Info extends Base{
         }
     }
     render(){
-        const {list,xiaoxi,flag} = this.state;
+        const {list,xiaoxi,flag,avatar,sex,nickName} = this.state;
         return(
             <div className="info">
             {
@@ -96,7 +113,7 @@ export default class Info extends Base{
                             <dl key={index}>
                                 <dt>
                                     <Link to={"/detail/"+item.id} className="list">{item.title}</Link>
-                                    <span>回复({item.commentNum-1})</span>
+                                    <span>回复({item.commentNum})</span>
                                 </dt>
                                 <dd>{this.changeTime(item.createDate)}</dd>
                             </dl>
@@ -130,10 +147,10 @@ export default class Info extends Base{
                     </div> 
                     <div className="right-center">
                         <dl>
-                            <dt> <img src={User}/></dt>
+                            <dt> <img src={avatar}/></dt>
                             <dd>
-                                <p>逗比哈nice</p>
-                                <p>男</p>
+                                <p>{nickName}</p>
+                                <p>{sex==1?"女":"男"}</p>
                             </dd>
                         </dl>
                        

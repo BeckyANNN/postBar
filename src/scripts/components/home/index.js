@@ -107,7 +107,7 @@ export default class Home extends Component{
                                                 <li key={index} className="listItem">
                                                     <div className="item">
                                                         <div className="item-left">
-                                                            <span className="threadlist_rep_num">{item.commentNum-1}</span>
+                                                            <span className="threadlist_rep_num">{item.commentNum}</span>
                                                         </div>
                                                         <div className="item-right">
                                                             <div className="threadlist_lz">
